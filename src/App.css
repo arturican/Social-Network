@@ -1,0 +1,68 @@
+*:not(script):not(style) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: grid;
+  grid-template-areas:
+          "h h"
+          "s c"
+                      ;
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
+  text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+}
+
+.App-header {
+  grid-area: h;
+  background-color: black;
+  min-height: 10vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-header a {
+  margin-left: 5px;
+}
+
+.App-header img {
+  width: 80px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.App-sidebar {
+  grid-area: s;
+  font-size: calc(10px + 2vmin);
+}
+
+.App-content {
+  grid-area: c;
+  font-size: calc(10px + 2vmin);
+}
+
+.App-content {
+  display: flex;
+  gap: 10px;
+  background-color: #282c38;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-content  img{
+  width: 300px;
+  height: 300px;
+  border-radius: 5px;
+}
+
