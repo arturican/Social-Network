@@ -45,6 +45,11 @@
 .App-sidebar {
   grid-area: s;
   font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-sidebar  div {
+  padding: 20px;
 }
 
 .App-content {

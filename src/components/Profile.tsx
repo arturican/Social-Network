@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Content = () => {
+export const Profile = () => {
     return (
         <div className={'App-content'}>
             <img src="https://i.ibb.co/vsrXHMd/photo-2020-12-08-18-05-27.jpg" alt="Диляра" />
@@ -13,6 +13,10 @@ export const Content = () => {
                 <p>Помогу решить задачи связанные с визуальным</p>
                 <p>представлением Вашей компании на рынке</p>
                 <button>Обсудить Ваш проект</button>
+                <div>
+                    <textarea></textarea>
+                    <button>отрпавить</button>
+                </div>
             </div>
 
         </div>
