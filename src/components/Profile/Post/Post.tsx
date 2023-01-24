@@ -1,0 +1,26 @@
+import React from 'react';
+import s from '../Post/Post.module.css'
+import {PostType} from "../Profile";
+
+
+
+
+
+
+export const Post = (props: PostType) => {
+    return (
+        <div>{props.mypost.map(t => { return (
+            <div className={s.content} key={t.likes}>
+                <img src={t.src} alt="аватарка падны"/>
+                <p>{t.message}</p>
+                <div>{t.likes}&#9829;</div>
+            </div>
+        )})}</div>
+
+
+
+
+
+    );
+};
+

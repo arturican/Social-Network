@@ -1,0 +1,19 @@
+.header {
+    grid-area: h;
+    background-color: black;
+    min-height: 10vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.header a {
+    margin-left: 5px;
+}
+
+.header img {
+    width: 80px;
+}

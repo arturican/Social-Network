@@ -1,0 +1,16 @@
+.content {
+    display: flex;
+    row-gap: 100px;
+    column-gap: 200px;
+    flex-wrap: wrap;
+    background-color: #282c38;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    margin-top: 50px;
+}
+
+.content  img{
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+}
