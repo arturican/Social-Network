@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Profile.module.css'
-import {About} from "./About/About";
+import {About} from "../About/About";
 import {Post} from "./Post/Post";
 
 export type PostType = {
@@ -45,8 +45,6 @@ const mypost = [
 export const Profile = () => {
     return (
         <div>
-            <About/>
-            <h2 className={s.h2}>Мои посты</h2>
             <Post mypost={mypost}/>
         </div>
     );

@@ -7,7 +7,7 @@ export const Sidebar = () => {
             <div><a>Проекты</a></div>
             <div><a>Услуги</a></div>
             <div><a>Софт</a></div>
-            <div><a>Посты</a></div>
+            <div><a>Обо мне</a></div>
             <div><a>Отзывы</a></div>
         </div>
     );

@@ -9,7 +9,9 @@ import {PostType} from "../Profile";
 
 export const Post = (props: PostType) => {
     return (
-        <div>{props.mypost.map(t => { return (
+        <div>
+            <h2 className={s.h2}>Мои посты</h2>
+            {props.mypost.map(t => { return (
             <div className={s.content} key={t.likes}>
                 <img src={t.src} alt="аватарка падны"/>
                 <p>{t.message}</p>
