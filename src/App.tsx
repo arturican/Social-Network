@@ -13,9 +13,12 @@ const App = () => {
                 <Header/>
                 <Sidebar/>
                 <div className='App-content'>
-                    <Route path='/' element={<About/>}/>
-                    <Route path='about' element={<About/>}/>
-                    <Route path='post' element={<Profile/>}/>
+                    <Routes>
+                        <Route path='/' element={<About/>}/>
+                        <Route path='about' element={<About/>}/>
+                        <Route path='post' element={<Profile/>}/>
+                    </Routes>
+
                 </div>
             </div>
         </BrowserRouter>
