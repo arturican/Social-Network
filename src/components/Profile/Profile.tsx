@@ -44,7 +44,7 @@ const mypost = [
 
 export const Profile = () => {
     return (
-        <div>
+        <div className={s.content}>
             <Post mypost={mypost}/>
         </div>
     );

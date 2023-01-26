@@ -24,3 +24,7 @@
     }
 
 }
+.header a {
+    list-style: none;
+    color: white;
+}

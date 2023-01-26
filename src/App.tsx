@@ -4,6 +4,7 @@ import {Header} from "./components/Header/Header";
 import {Sidebar} from "./components/Sidebar/Sidebar";
 import {Profile} from "./components/Profile/Profile";
 import {About} from "./components/About/About";
+import {BrowserRouter,  Route, Routes,} from "react-router-dom";
 
 const App = () => {
     return (
@@ -11,11 +12,15 @@ const App = () => {
             <Header/>
             <Sidebar/>
             <div className='App-content'>
-                <About/>
-                {/*<Profile/>*/}
+                <BrowserRouter>
+                    <Routes>
+                        <Route path='/' element={<About/>}/>
+                        <Route path='about' element={<About/>}/>
+                        <Route path='post' element={<Profile/>}/>
+                    </Routes>
+
+                </BrowserRouter>
             </div>
-
-
         </div>
     );
 }
