@@ -9,7 +9,12 @@ export const Header = () => {
                 src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMr-sgxiABsPy1NTa8_PaTImG0S74LTRTIFg&usqp=CAU'}/>
             <div><a>Проекты</a></div>
             <div><a>Услуги</a></div>
-            <div><NavLink to='/post'>Посты</NavLink></div>
+            <div>
+                <NavLink to='/post'
+                          className={({isActive}) => (isActive ? s.active : '')}>
+                Посты
+            </NavLink>
+            </div>
             <div><a>Отзывы</a></div>
         </header>
 

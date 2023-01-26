@@ -11,4 +11,9 @@
 .sidebar a {
     list-style: none;
     color: white;
+    text-decoration: none;
+}
+
+a.active {
+    color: gold;
 }
