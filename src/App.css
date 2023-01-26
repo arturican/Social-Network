@@ -36,7 +36,14 @@
   margin: 100px;
 }
 
-
+@media (max-width: 650px) {
+  .App {
+    grid-template-areas:
+          "h"
+          "c"
+          "s"
+  ;
+  }}
 
 
 

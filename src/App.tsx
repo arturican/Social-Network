@@ -12,7 +12,7 @@ const App = () => {
             <Sidebar/>
             <div className='App-content'>
                 <About/>
-                <Profile/>
+                {/*<Profile/>*/}
             </div>
 
 
