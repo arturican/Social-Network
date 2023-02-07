@@ -5,14 +5,12 @@ import {Sidebar} from "./components/Sidebar/Sidebar";
 import {Profile} from "./components/Profile/Profile";
 import {About} from "./components/About/About";
 import {BrowserRouter, HashRouter, Route, Routes,} from "react-router-dom";
-import {PostType, state} from "./Redux/state";
+import {state} from "./Redux/state";
 
 
-type AppStateType = {
-    state?: PostType
-}
 
-const App = (props: AppStateType ) => {
+
+const App = () => {
     return (
         <BrowserRouter>
             <div className="App">

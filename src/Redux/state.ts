@@ -9,7 +9,7 @@ type PostArrayType = {
 }
 
 
-export let state = {
+export let state: PostType = {
     mypost : [
         {
             src: "https://i.ibb.co/CQ80wbD/photo-2021-11-21-21-54-15.jpg",
@@ -36,7 +36,5 @@ export let state = {
                 'Вот такая получилась история одного маленького изображения 👻',
             likes: 100
         },
-    ],
-    dialogs: [],
-    message: []
+    ]
 }
