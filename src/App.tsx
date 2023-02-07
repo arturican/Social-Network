@@ -5,8 +5,14 @@ import {Sidebar} from "./components/Sidebar/Sidebar";
 import {Profile} from "./components/Profile/Profile";
 import {About} from "./components/About/About";
 import {BrowserRouter, HashRouter, Route, Routes,} from "react-router-dom";
+import {state} from "./Redux/state";
 
-const App = () => {
+
+type AppStateType = {
+    state?: any
+}
+
+const App = (props: AppStateType ) => {
     return (
         <BrowserRouter>
             <div className="App">
@@ -16,7 +22,7 @@ const App = () => {
                     <Routes>
                         <Route path='/' element={<About/>}/>
                         <Route path='about' element={<About/>}/>
-                        <Route path='post' element={<Profile/>}/>
+                        <Route path='post' element={<Profile mypost={state.mypost}/>}/>
                     </Routes>
 
                 </div>
