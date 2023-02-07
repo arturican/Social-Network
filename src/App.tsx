@@ -5,11 +5,11 @@ import {Sidebar} from "./components/Sidebar/Sidebar";
 import {Profile} from "./components/Profile/Profile";
 import {About} from "./components/About/About";
 import {BrowserRouter, HashRouter, Route, Routes,} from "react-router-dom";
-import {state} from "./Redux/state";
+import {PostType, state} from "./Redux/state";
 
 
 type AppStateType = {
-    state?: any
+    state?: PostType
 }
 
 const App = (props: AppStateType ) => {
