@@ -1,17 +1,17 @@
 import React from 'react';
 import s from '../Post/Post.module.css'
-import {ProfilePageType} from "../../../Redux/state";
+import {PostType} from "../../../Redux/state";
+
 
 type PostPageType = {
-    post: ProfilePageType
+    posts: Array<PostType>
 }
 
 export const Post = (props: PostPageType) => {
     return (
-
         <div>
             <h2 className={s.h2}>Мои посты</h2>
-            { props.post.post.map(t => {
+            {props.posts.map(t => {
                 return (
                     <div className={s.content} key={t.likes}>
                         <img src={t.src} alt="аватарка падны"/>

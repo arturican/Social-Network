@@ -9,8 +9,6 @@ import {state} from "./Redux/state";
 
 
 const App = () => {
-
-    let profilePage = state.profilePage
     return (
         <BrowserRouter>
             <div className="App">
@@ -20,9 +18,8 @@ const App = () => {
                     <Routes>
                         <Route path='/' element={<About/>}/>
                         <Route path='about' element={<About/>}/>
-                        <Route path='post' element={<Profile state={profilePage}/>}/>
+                        <Route path='post' element={<Profile state={state.profilePage}/>}/>
                     </Routes>
-
                 </div>
             </div>
         </BrowserRouter>

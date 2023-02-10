@@ -1,5 +1,5 @@
 export type ProfilePageType = {
-    post: Array<PostType>
+    posts: Array<PostType>
 }
 
 export type PostType = {
@@ -14,7 +14,7 @@ export type RootType = {
 
 export const state: RootType = {
     profilePage: {
-        post: [
+        posts: [
             {
                 src: "https://i.ibb.co/CQ80wbD/photo-2021-11-21-21-54-15.jpg",
                 message: 'Всем привет! ✨\n' +
@@ -39,7 +39,7 @@ export const state: RootType = {
                     '\n' +
                     'Вот такая получилась история одного маленького изображения 👻',
                 likes: 100
-            }
+            },
         ]
     }
 
