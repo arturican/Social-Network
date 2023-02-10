@@ -11,6 +11,7 @@ export const Sidebar = () => {
             <div><NavLink to='/about' className={({isActive}) => (isActive ? s.active : '')}>Обо мне</NavLink></div>
             <div><NavLink to='/post' className={({isActive}) => (isActive ? s.active : '')}>Посты</NavLink></div>
             <div><NavLink to='/feedback' className={({isActive}) => (isActive ? s.active : '')}>Отзывы</NavLink></div>
+            <div><NavLink to='/messages' className={({isActive}) => (isActive ? s.active : '')}>Сообщения</NavLink></div>
         </div>
     );
 };

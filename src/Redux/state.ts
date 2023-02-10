@@ -8,9 +8,27 @@ export type PostType = {
     likes: number
 }
 
+
+export type UsersType = {
+    id: number
+    name: string
+}
+
+export type MessagesType = {
+    id: number
+    message: string
+}
+export type DialogPageType = {
+    users: Array<UsersType>
+    messages: Array<MessagesType>
+}
+
+
 export type RootType = {
     profilePage: ProfilePageType
+    dialogPage: DialogPageType
 }
+
 
 export const state: RootType = {
     profilePage: {
@@ -40,6 +58,16 @@ export const state: RootType = {
                     'Вот такая получилась история одного маленького изображения 👻',
                 likes: 100
             },
+        ]
+    },
+    dialogPage: {
+        users: [
+            {id: 1, name: 'Artur'},
+            {id: 2, name: 'Dilyara'},
+        ],
+        messages: [
+            {id: 1, message: 'Hi, Dilyara!'},
+            {id: 2, message: 'Hi, Artur!'}
         ]
     }
 
