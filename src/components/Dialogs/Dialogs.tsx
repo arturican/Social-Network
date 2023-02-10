@@ -2,6 +2,7 @@ import React from 'react';
 import {DialogPageType} from "../../Redux/state";
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
+import s from "./Dialogs.module.css"
 
 
 type DialogType = {
@@ -10,9 +11,13 @@ type DialogType = {
 
 const Dialogs = (props: DialogType) => {
     return (
-        <div>
-            <Dialog users={props.state.users}/>
-            <Message messages={props.state.messages}/>
+        <div className={s.container}>
+            <div className={s.users}>
+                <Dialog users={props.state.users}/>
+            </div>
+            <div className={s.message}>
+                <Message messages={props.state.messages}/>
+            </div>
         </div>
     );
 };

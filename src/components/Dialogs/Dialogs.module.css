@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    background-color: dimgrey;
+    gap: normal;
+
+}
+
+
+.users a{
+    color: white;
+    list-style: none;
+    text-decoration-line: none;
+}
+
+
+.users {
+
+}
+
+.message {
+    margin-left: auto;
+}
