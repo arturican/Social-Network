@@ -9,11 +9,11 @@ type DialogType = {
 
 const Dialog = (props: DialogType) => {
     return (
-        <div className={s.content}>
+        <div>
             {props.users.map(u => {
                 return (
                     <NavLink to={'/messages/' + u.id}
-                             className={s.linkstyle}
+                             className={u.id === 1 ? s.users : s.freind}
                     ><div>{u.name}</div></NavLink>
                 )
             })}</div>

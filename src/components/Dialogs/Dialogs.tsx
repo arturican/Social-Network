@@ -12,7 +12,7 @@ type DialogType = {
 const Dialogs = (props: DialogType) => {
     return (
         <div className={s.container}>
-            <div className={s.users}>
+            <div>
                 <Dialog users={props.state.users}/>
             </div>
             <div className={s.message}>

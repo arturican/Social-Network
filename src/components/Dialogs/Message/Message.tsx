@@ -11,10 +11,13 @@ const Message = (props: MessageType) => {
         <div >
             {props.messages.map(m => {
                 return (
-                    <div key={m.id} className={s.content}><span>{m.message}</span></div>
+                    <div key={m.id} className={m.id === 1 ? s.content : s.friendmessage}><div>{m.message}</div></div>
                 )
             })}
+            <textarea>LOL</textarea>
+            <button>send</button>
         </div>
+
     );
 };
 

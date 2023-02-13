@@ -1,8 +1,11 @@
 .content {
-
     background-color: #61dafb;
     margin: 5px;
     border-radius: 5px;
-
 }
 
+.friendmessage {
+    background-color: darkseagreen;
+    margin: 5px;
+    border-radius: 5px;
+}
