@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {MouseEventHandler} from 'react';
 import {MessagesType, UsersType} from "../../../Redux/state";
 import s from './Message.module.css'
 import {NavLink} from "react-router-dom";
@@ -9,6 +9,13 @@ type MessageType = {
 }
 
 const Message = (props: MessageType) => {
+
+
+    let newMessageElement = React.createRef<HTMLTextAreaElement>();
+    let addMessage = () => {
+        alert(newMessageElement.current?.value)
+    }
+
     return (
         <div >
             {props.messages.map(m => {
@@ -22,8 +29,8 @@ const Message = (props: MessageType) => {
                     </div>
                 )
             })}
-            <textarea>LOL</textarea>
-            <button>send</button>
+            <textarea ref={newMessageElement}></textarea>
+            <button onClick={addMessage}>send</button>
         </div>
 
 
