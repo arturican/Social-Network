@@ -74,3 +74,15 @@ export const state: RootType = {
     }
 
 }
+
+
+export const addPost = (newPost: any) => {
+    const newMessage = {
+            src: "https://i.ibb.co/CQ80wbD/photo-2021-11-21-21-54-15.jpg",
+            message: newPost,
+            likes: 0
+        }
+
+        state.profilePage.posts.push(newMessage)
+
+}

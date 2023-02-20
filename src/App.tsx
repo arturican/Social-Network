@@ -6,7 +6,10 @@ import {Profile} from "./components/Profile/Profile";
 import {About} from "./components/About/About";
 import {BrowserRouter, Route, Routes,} from "react-router-dom";
 import {state} from "./Redux/state";
+import {addPost} from './Redux/state';
 import Dialogs from "./components/Dialogs/Dialogs";
+
+
 
 
 const App = () => {
@@ -19,7 +22,7 @@ const App = () => {
                     <Routes>
                         <Route path='/' element={<About/>}/>
                         <Route path='about' element={<About/>}/>
-                        <Route path='post' element={<Profile state={state.profilePage}/>}/>
+                        <Route path='post' element={<Profile state={state.profilePage} addPost={addPost}/>}/>
                         <Route path='messages' element={<Dialogs state={state.dialogPage}/>}/>
                     </Routes>
                 </div>
