@@ -5,14 +5,17 @@ import {Sidebar} from "./components/Sidebar/Sidebar";
 import {Profile} from "./components/Profile/Profile";
 import {About} from "./components/About/About";
 import {BrowserRouter, Route, Routes,} from "react-router-dom";
-import {state} from "./Redux/state";
-import {addPost} from './Redux/state';
 import Dialogs from "./components/Dialogs/Dialogs";
+import {RootType} from "./Redux/state";
 
 
 
+type AppType = {
+    state: RootType
+    addPost: (newPost: string)=> void
+}
 
-const App = () => {
+const App = (props: AppType) => {
     return (
         <BrowserRouter>
             <div className="App">
@@ -22,8 +25,8 @@ const App = () => {
                     <Routes>
                         <Route path='/' element={<About/>}/>
                         <Route path='about' element={<About/>}/>
-                        <Route path='post' element={<Profile state={state.profilePage} addPost={addPost}/>}/>
-                        <Route path='messages' element={<Dialogs state={state.dialogPage}/>}/>
+                        <Route path='post' element={<Profile state={props.state.profilePage} addPost={props.addPost}/>}/>
+                        <Route path='messages' element={<Dialogs state={props.state.dialogPage}/>}/>
                     </Routes>
                 </div>
             </div>

@@ -1,3 +1,6 @@
+import {reRender} from "../index";
+
+
 export type ProfilePageType = {
     posts: Array<PostType>
 }
@@ -83,6 +86,7 @@ export const addPost = (newPost: any) => {
             likes: 0
         }
 
-        state.profilePage.posts.push(newMessage)
+        state.profilePage.posts.push(newMessage);
+        reRender(state)
 
 }

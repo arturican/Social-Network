@@ -10,17 +10,16 @@ type ProfileType = {
 
 export const Profile = (props: ProfileType) => {
     let newPostElement = React.createRef<HTMLTextAreaElement>();
-   /* let addPost = () => {
-        alert(newPostElement.current?.value)
 
-    }*/
-
-    let message = newPostElement.current?.value
+    let addPost = () => {
+        debugger;
+        props.addPost(newPostElement.current?.value)
+    }
     return (
         <div className={s.content}>
             <Post posts={props.state.posts}/>
             <textarea ref={newPostElement}></textarea>
-            <button onClick={()=>props.addPost(message)}>send</button>
+            <button onClick={addPost}>send</button>
         </div>
     );
 };
