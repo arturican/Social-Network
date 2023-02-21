@@ -1,4 +1,4 @@
-import {reRender} from "../index";
+import {reRender} from "../render";
 
 
 export type ProfilePageType = {
