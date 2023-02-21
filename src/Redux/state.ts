@@ -1,8 +1,12 @@
-import {reRender} from "../render";
+
+let reRender = () => {
+    console.log('state')
+}
 
 
 export type ProfilePageType = {
     posts: Array<PostType>
+    newPostText: string
 }
 
 export type PostType = {
@@ -63,7 +67,8 @@ export const state: RootType = {
                     'Вот такая получилась история одного маленького изображения 👻',
                 likes: 100
             },
-        ]
+        ],
+        newPostText: 'Напиши пост, не молчи!'
     },
     dialogPage: {
         users: [
@@ -82,11 +87,20 @@ export const state: RootType = {
 export const addPost = (newPost: any) => {
     const newMessage = {
             src: "https://i.ibb.co/CQ80wbD/photo-2021-11-21-21-54-15.jpg",
-            message: newPost,
+            message: state.profilePage.newPostText,
             likes: 0
         }
 
         state.profilePage.posts.push(newMessage);
         reRender(state)
+}
 
+export const updateNewPostText = (newPost: string) => {
+    state.profilePage.newPostText = newPost
+    reRender(state)
+}
+
+
+export const subscribe = (callback: any) => {
+    reRender = callback;
 }
