@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import s from './Profile.module.css'
 import {Post} from "./Post/Post";
 import {ProfilePageType} from "../../Redux/state";
@@ -10,27 +10,23 @@ type ProfileType = {
 }
 
 export const Profile = (props: ProfileType) => {
-    let newPostElement = React.createRef<HTMLTextAreaElement>();
 
     let addPost = () => {
-        if(newPostElement.current){
-            props.addPost(newPostElement.current.value)
+            props.addPost(props.state.newPostText)
             props.updateNewPostText('')
-        }
+
 
     }
 
-    let onChangePost = () => {
-        if(newPostElement.current){
-            props.updateNewPostText(newPostElement.current.value)
-        }
+    let onChangePost = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        props.updateNewPostText(e.currentTarget.value)
 
     }
 
     return (
         <div className={s.content}>
             <Post posts={props.state.posts}/>
-            <textarea ref={newPostElement} onChange={onChangePost} value={props.state.newPostText}></textarea>
+            <textarea  onChange={onChangePost} value={props.state.newPostText}></textarea>
             <button onClick={addPost}>send</button>
         </div>
     );

@@ -1,5 +1,7 @@
 
-let reRender = () => {
+
+
+let onChange = (state: RootType) => {
     console.log('state')
 }
 
@@ -87,20 +89,20 @@ export const state: RootType = {
 export const addPost = (newPost: any) => {
     const newMessage = {
             src: "https://i.ibb.co/CQ80wbD/photo-2021-11-21-21-54-15.jpg",
-            message: state.profilePage.newPostText,
+            message: newPost,
             likes: 0
         }
 
         state.profilePage.posts.push(newMessage);
-        reRender(state)
+        onChange(state)
 }
 
 export const updateNewPostText = (newPost: string) => {
     state.profilePage.newPostText = newPost
-    reRender(state)
+    onChange(state)
 }
 
 
 export const subscribe = (callback: any) => {
-    reRender = callback;
+    onChange = callback;
 }
