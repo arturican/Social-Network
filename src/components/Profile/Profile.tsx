@@ -1,28 +1,29 @@
 import React, {ChangeEvent} from 'react';
 import s from './Profile.module.css'
 import {Post} from "./Post/Post";
-import {ProfilePageType} from "../../Redux/state";
+import {ActionsType, ProfilePageType} from "../../Redux/state";
 
 type ProfileType = {
     state: ProfilePageType
-    addPost: (newPost:any)=> void
-    updateNewPostText: (newPost:any)=> void
+    dispatch: (action: ActionsType) => void
+/*    addPost: (newPost:any)=> void
+    updateNewPostText: (newPost:any)=> void*/
 }
 
 export const Profile = (props: ProfileType) => {
 
     let addPost = () => {
-            props.addPost(props.state.newPostText)
-            props.updateNewPostText('')
-
+            //props.addPost(props.state.newPostText)
+            props.dispatch({type: "ADD-POST", newPost: props.state.newPostText})
+          /* props.updateNewPostText('')*/
+            props.dispatch({type: "UPDATE-NEW-POST", newPost: ''})
 
     }
 
     let onChangePost = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.updateNewPostText(e.currentTarget.value)
-
+        /*props.updateNewPostText(e.currentTarget.value)*/
+        props.dispatch({type: 'UPDATE-NEW-POST', newPost: e.currentTarget.value})
     }
-
     return (
         <div className={s.content}>
             <Post posts={props.state.posts}/>

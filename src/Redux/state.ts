@@ -38,8 +38,21 @@ export type StoreType = {
     _onChange: () => void
     subscribe: (callback: () => void) => void
     getState: () => RootType
+    dispatch: (action: any) => void
 
 }
+
+export type AddPostActionType = {
+    type: 'ADD-POST'
+    newPost: string
+}
+
+export type UpdatePostActionType = {
+    type: 'UPDATE-NEW-POST'
+    newPost: string
+}
+
+export type ActionsType = AddPostActionType | UpdatePostActionType;
 
 export const store: StoreType = {
     _state: {
@@ -115,7 +128,22 @@ export const store: StoreType = {
     },
     subscribe(callback) {
         this._onChange = callback;
+    },
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            const newMessage = {
+                src: "https://i.ibb.co/CQ80wbD/photo-2021-11-21-21-54-15.jpg",
+                message: action.newPost,
+                likes: 0
+            }
+            this._state.profilePage.posts.push(newMessage);
+            this._onChange()
+        } else if (action.type === 'UPDATE-NEW-POST') {
+            this._state.profilePage.newPostText = action.newPost
+            this._onChange()
+        }
     }
+
 }
 
 

@@ -27,8 +27,9 @@ const App: React.FC<AppType> = (props) => {
                         <Route path='/' element={<About/>}/>
                         <Route path='about' element={<About/>}/>
                         <Route path='post' element={<Profile state={state.profilePage}
-                                                             addPost={props.store.addPost.bind(props.store)}
-                                                             updateNewPostText={props.store.updateNewPostText.bind(props.store)}
+                                                             dispatch={props.store.dispatch.bind(props.store)}
+                                                             /*addPost={props.store.addPost.bind(props.store)}
+                                                             updateNewPostText={props.store.updateNewPostText.bind(props.store)}*/
                         />}/>
                         <Route path='messages' element={<Dialogs state={state.dialogPage}/>}/>
                     </Routes>
