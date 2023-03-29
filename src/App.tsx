@@ -6,17 +6,17 @@ import {Profile} from "./components/Profile/Profile";
 import {About} from "./components/About/About";
 import {BrowserRouter, Route, Routes,} from "react-router-dom";
 import Dialogs from "./components/Dialogs/Dialogs";
-import {RootType, updateNewPostText} from "./Redux/state";
-
+import {StoreType} from "./Redux/state";
 
 
 type AppType = {
-    state: RootType
-    addPost: (newPost: string)=> void
-    updateNewPostText: (newPost:string) => void
+    store: StoreType
 }
 
-const App = (props: AppType) => {
+const App: React.FC<AppType> = (props) => {
+
+    const state = props.store.getState();
+
     return (
         <BrowserRouter>
             <div className="App">
@@ -26,11 +26,11 @@ const App = (props: AppType) => {
                     <Routes>
                         <Route path='/' element={<About/>}/>
                         <Route path='about' element={<About/>}/>
-                        <Route path='post' element={<Profile state={props.state.profilePage}
-                                                             addPost={props.addPost}
-                                                             updateNewPostText={props.updateNewPostText}
+                        <Route path='post' element={<Profile state={state.profilePage}
+                                                             addPost={props.store.addPost.bind(props.store)}
+                                                             updateNewPostText={props.store.updateNewPostText.bind(props.store)}
                         />}/>
-                        <Route path='messages' element={<Dialogs state={props.state.dialogPage}/>}/>
+                        <Route path='messages' element={<Dialogs state={state.dialogPage}/>}/>
                     </Routes>
                 </div>
             </div>
