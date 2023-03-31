@@ -1,19 +1,25 @@
-import React, {MouseEventHandler} from 'react';
-import {MessagesType, UsersType} from "../../../Redux/state";
+import React, {ChangeEvent, MouseEventHandler} from 'react';
+import {ActionsType, DialogPageType, MessagesType, UsersType} from "../../../Redux/state";
 import s from './Message.module.css'
 import {NavLink} from "react-router-dom";
 
 type MessageType = {
     messages: Array<MessagesType>
     users: Array<UsersType>
+    dispatch: (action: ActionsType) => void
+    state: DialogPageType
 }
 
 const Message = (props: MessageType) => {
 
 
-    let newMessageElement = React.createRef<HTMLTextAreaElement>();
+
     let addMessage = () => {
-        alert(newMessageElement.current?.value)
+        props.dispatch({type: 'ADD-MESSAGE', newMessageText: props.state.newMessageText})
+        props.dispatch({type: "UPDATE-MESSAGE", newMessageText: ''})
+    }
+    let onChangeMessage = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        props.dispatch({type: "UPDATE-MESSAGE", newMessageText: e.currentTarget.value})
     }
 
     return (
@@ -29,7 +35,7 @@ const Message = (props: MessageType) => {
                     </div>
                 )
             })}
-            <textarea ref={newMessageElement}></textarea>
+            <textarea onChange={onChangeMessage} value={props.state.newMessageText}></textarea>
             <button onClick={addMessage}>send</button>
         </div>
 
