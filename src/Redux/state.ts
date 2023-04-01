@@ -24,6 +24,7 @@ export type MessagesType = {
 export type DialogPageType = {
     users: Array<UsersType>
     messages: Array<MessagesType>
+    newMessageText: string
 }
 
 export type RootType = {
@@ -52,7 +53,8 @@ export type UpdatePostActionType = {
     newPost: string
 }
 
-export type ActionsType = ReturnType<typeof addPostAC> | ReturnType<typeof updatePostAC>;
+
+export type ActionsType = ReturnType<typeof addPostAC> | ReturnType<typeof updatePostAC> |UpdateMessageActionType | AddMessageActionType ;
 
 export const addPostAC = (newPost:string) => {
     return {
@@ -66,6 +68,19 @@ export const updatePostAC = (newPost:string) => {
         newPost: newPost
     }as const
 }
+
+export type UpdateMessageActionType = {
+    type: 'UPDATE-MESSAGE'
+    newMessageText: string
+}
+
+export type AddMessageActionType = {
+    type: 'ADD-MESSAGE'
+    newMessageText: string
+}
+
+
+
 
 export const store: StoreType = {
     _state: {
@@ -117,7 +132,8 @@ export const store: StoreType = {
                     name: 'Dilyara',
                     img: 'https://cdn4.telegram-cdn.org/file/JzgWrSGqjMQKidX3UVVu59zNguNCAU8Iv53XMgGfP489S0EDaLNmRQXY7JZSgiwxIWYM8ej4Z870bE43CIP414-Dkf_UC4FI8VCIU6aRiuLy8z4wTtheaaDQw_Zn13Jg-3YIdNrZCo5fkuZo1zXZ9zwkL7DC9rQ3l7WEd2O5nJpW0iJOU9egNcb3mCl_96HnIgXMgdjeI459AgyZoCfqJ3amBh5X9TmgMft64alJvJPQdrNV9RtKYsUhw_yEI4byU4ReIzom-oXUIWgTPtA4JA2sOPO4sdPk_UkgkyijLVFW5Y_H1r4zcg3Jc09nBJ8taLhm7_c85gJ1QftkT9J7kw.jpg'
                 }
-            ]
+            ],
+            newMessageText: 'Напиши сообщение'
         }
 
     },
@@ -153,6 +169,18 @@ export const store: StoreType = {
             this._onChange()
         } else if (action.type === 'UPDATE-NEW-POST') {
             this._state.profilePage.newPostText = action.newPost
+            this._onChange()
+        } else if (action.type === 'UPDATE-MESSAGE'){
+            this._state.dialogPage.newMessageText = action.newMessageText
+            this._onChange()
+        } else if (action.type === 'ADD-MESSAGE'){
+            const newMessage = {
+                id: 1,
+                message: action.newMessageText,
+                name: 'Artur',
+                img: 'https://lh3.googleusercontent.com/-E65lnxcLZ0c/AAAAAAAAAAI/AAAAAAAAAAA/APmPUbE0IrJSL-ECAqp4sVteYG-JudFuLg/photo.jpg?sz=200'
+            }
+            this._state.dialogPage.messages.push(newMessage);
             this._onChange()
         }
     }

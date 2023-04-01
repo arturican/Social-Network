@@ -31,7 +31,9 @@ const App: React.FC<AppType> = (props) => {
                                                              /*addPost={props.store.addPost.bind(props.store)}
                                                              updateNewPostText={props.store.updateNewPostText.bind(props.store)}*/
                         />}/>
-                        <Route path='messages' element={<Dialogs state={state.dialogPage}/>}/>
+                        <Route path='messages' element={<Dialogs state={state.dialogPage}
+                                                                 dispatch={props.store.dispatch.bind(props.store)}
+                        />}/>
                     </Routes>
                 </div>
             </div>
