@@ -1,3 +1,6 @@
+import {addPostAC, profileReducer, updatePostAC} from "./profileReducer";
+import {addMessageAC, dialogsReducer, updateMessageAC} from "./dialogsReducer";
+
 export type ProfilePageType = {
     posts: Array<PostType>
     newPostText: string
@@ -43,41 +46,17 @@ export type StoreType = {
 
 }
 
-export type AddPostActionType = {
-    type: 'ADD-POST'
-    newPost: string
-}
-
-export type UpdatePostActionType = {
-    type: 'UPDATE-NEW-POST'
-    newPost: string
-}
 
 
-export type ActionsType = ReturnType<typeof addPostAC> | ReturnType<typeof updatePostAC> |UpdateMessageActionType | AddMessageActionType ;
 
-export const addPostAC = (newPost:string) => {
-    return {
-        type: 'ADD-POST',
-        newPost: newPost
-    }as const
-}
-export const updatePostAC = (newPost:string) => {
-    return {
-        type: 'UPDATE-NEW-POST',
-        newPost: newPost
-    }as const
-}
+export type ActionsType =
+    ReturnType<typeof addPostAC>
+    | ReturnType<typeof updatePostAC>
+    | ReturnType<typeof updateMessageAC>
+    | ReturnType<typeof addMessageAC>
 
-export type UpdateMessageActionType = {
-    type: 'UPDATE-MESSAGE'
-    newMessageText: string
-}
 
-export type AddMessageActionType = {
-    type: 'ADD-MESSAGE'
-    newMessageText: string
-}
+
 
 
 
@@ -159,30 +138,10 @@ export const store: StoreType = {
         this._onChange = callback;
     },
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
-            const newMessage = {
-                src: "https://i.ibb.co/CQ80wbD/photo-2021-11-21-21-54-15.jpg",
-                message: action.newPost,
-                likes: 0
-            }
-            this._state.profilePage.posts.push(newMessage);
-            this._onChange()
-        } else if (action.type === 'UPDATE-NEW-POST') {
-            this._state.profilePage.newPostText = action.newPost
-            this._onChange()
-        } else if (action.type === 'UPDATE-MESSAGE'){
-            this._state.dialogPage.newMessageText = action.newMessageText
-            this._onChange()
-        } else if (action.type === 'ADD-MESSAGE'){
-            const newMessage = {
-                id: 1,
-                message: action.newMessageText,
-                name: 'Artur',
-                img: 'https://lh3.googleusercontent.com/-E65lnxcLZ0c/AAAAAAAAAAI/AAAAAAAAAAA/APmPUbE0IrJSL-ECAqp4sVteYG-JudFuLg/photo.jpg?sz=200'
-            }
-            this._state.dialogPage.messages.push(newMessage);
-            this._onChange()
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action)
+        this._state.dialogPage = dialogsReducer(this._state.dialogPage, action)
+        this._onChange()
+
     }
 
 }

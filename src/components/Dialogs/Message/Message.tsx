@@ -1,7 +1,13 @@
 import React, {ChangeEvent, MouseEventHandler} from 'react';
-import {ActionsType, DialogPageType, MessagesType, UsersType} from "../../../Redux/state";
+import {
+    ActionsType,
+    DialogPageType,
+    MessagesType,
+    UsersType
+} from "../../../Redux/state";
 import s from './Message.module.css'
 import {NavLink} from "react-router-dom";
+import {addMessageAC, updateMessageAC} from "../../../Redux/dialogsReducer";
 
 type MessageType = {
     messages: Array<MessagesType>
@@ -15,11 +21,11 @@ const Message = (props: MessageType) => {
 
 
     let addMessage = () => {
-        props.dispatch({type: 'ADD-MESSAGE', newMessageText: props.state.newMessageText})
-        props.dispatch({type: "UPDATE-MESSAGE", newMessageText: ''})
+        props.dispatch(addMessageAC(props.state.newMessageText))
+        props.dispatch(updateMessageAC(''))
     }
     let onChangeMessage = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        props.dispatch({type: "UPDATE-MESSAGE", newMessageText: e.currentTarget.value})
+        props.dispatch(updateMessageAC(e.currentTarget.value))
     }
 
     return (
