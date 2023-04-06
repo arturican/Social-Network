@@ -6,13 +6,13 @@ export const profileReducer = (state: any , action: ActionsType) => {
         case "ADD-POST":
             const newMessage = {
                 src: "https://i.ibb.co/CQ80wbD/photo-2021-11-21-21-54-15.jpg",
-                message: state.newPost,
+                message: state.newPostText,
                 likes: 0
             }
-            state.profilePage.posts.push(newMessage);
+            state.posts.push(newMessage);
             return state;
         case "UPDATE-NEW-POST":
-            state.profilePage.newPostText = state.newPost
+            state.newPostText = action.newPost
             return state;
         default:
             return state;

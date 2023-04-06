@@ -10,10 +10,10 @@ export const dialogsReducer = (state: any, action: ActionsType) => {
                 name: 'Artur',
                 img: 'https://lh3.googleusercontent.com/-E65lnxcLZ0c/AAAAAAAAAAI/AAAAAAAAAAA/APmPUbE0IrJSL-ECAqp4sVteYG-JudFuLg/photo.jpg?sz=200'
             }
-            state.dialogPage.messages.push(newMessage);
+            state.messages.push(newMessage);
             return state;
         case 'UPDATE-MESSAGE':
-            state.dialogPage.newMessageText = state.newMessageText
+            state.newMessageText = action.newMessageText
             return state;
         default:
             return state;
