@@ -4,7 +4,7 @@ import {
     DialogPageType,
     MessagesType,
     UsersType
-} from "../../../Redux/state";
+} from "../../../Redux/store";
 import s from './Message.module.css'
 import {NavLink} from "react-router-dom";
 import {addMessageAC, updateMessageAC} from "../../../Redux/dialogsReducer";

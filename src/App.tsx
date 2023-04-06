@@ -6,11 +6,11 @@ import {Profile} from "./components/Profile/Profile";
 import {About} from "./components/About/About";
 import {BrowserRouter, Route, Routes,} from "react-router-dom";
 import Dialogs from "./components/Dialogs/Dialogs";
-import {StoreType} from "./Redux/state";
+import {StoreType} from "./Redux/store";
 
 
 type AppType = {
-    store: StoreType
+    store: any
 }
 
 const App: React.FC<AppType> = (props) => {

@@ -61,7 +61,7 @@ export type ActionsType =
 
 
 
-export const store: StoreType = {
+/*export const store: StoreType = {
     _state: {
         profilePage: {
             posts: [
@@ -144,7 +144,7 @@ export const store: StoreType = {
 
     }
 
-}
+}*/
 
 
 
