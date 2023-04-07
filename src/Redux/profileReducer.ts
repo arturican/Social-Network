@@ -1,5 +1,9 @@
 import {ActionsType, PostType} from "../types/entities";
 
+export type InitialStateType = {
+    posts: Array<PostType>
+    newPostText:string
+}
 
 const initialState: InitialStateType = {
     posts: [
@@ -32,11 +36,8 @@ const initialState: InitialStateType = {
     newPostText: 'Напиши пост, не молчи!'
 }
 
-export type InitialStateType = {
-    posts: Array<PostType>
-    newPostText:string
-}
-export const profileReducer = (state = initialState, action: ActionsType) => {
+
+export const profileReducer = (state:InitialStateType = initialState, action: ActionsType): InitialStateType => {
 
     switch (action.type) {
         case "ADD-POST":

@@ -1,7 +1,4 @@
-/*
-import {addPostAC, profileReducer, updatePostAC} from "./profileReducer";
-import {addMessageAC, dialogsReducer, updateMessageAC} from "./dialogsReducer";
-*/
+
 
 
 
@@ -99,7 +96,7 @@ import {addMessageAC, dialogsReducer, updateMessageAC} from "./dialogsReducer";
     }
 
 }*/
-
+export  default 1
 
 
 
