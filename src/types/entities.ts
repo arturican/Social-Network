@@ -1,6 +1,6 @@
 import {addPostAC, updatePostAC} from "../Redux/profileReducer";
 import {addMessageAC, updateMessageAC} from "../Redux/dialogsReducer";
-import {ReducersType} from "../Redux/redux-store";
+
 
 export type ActionsType =
     ReturnType<typeof addPostAC>
@@ -47,4 +47,3 @@ export type StoreType = {
 
 }
 
-export type AppStateType = ReturnType<ReducersType>
