@@ -1,8 +1,8 @@
 import React from 'react';
-import {ActionsType, DialogPageType} from "../../Redux/store";
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
 import s from "./Dialogs.module.css"
+import {ActionsType, DialogPageType} from "../../types/entities";
 
 
 type DialogType = {

@@ -1,4 +1,4 @@
-import {ActionsType, RootType} from "./store";
+import {ActionsType} from "../types/entities";
 
 let initalState = {
     users: [

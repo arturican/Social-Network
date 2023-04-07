@@ -1,6 +1,8 @@
 import React from 'react';
 import s from '../Post/Post.module.css'
-import {PostType} from "../../../Redux/store";
+
+import {PostType} from "../../../types/entities";
+
 
 
 type PostPageType = {

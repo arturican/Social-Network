@@ -1,8 +1,8 @@
 import React, {ChangeEvent} from 'react';
 import s from './Profile.module.css'
 import {Post} from "./Post/Post";
-import {ActionsType, ProfilePageType} from "../../Redux/store";
 import {addPostAC, updatePostAC} from "../../Redux/profileReducer";
+import {ActionsType, ProfilePageType} from "../../types/entities";
 
 type ProfileType = {
     state: ProfilePageType

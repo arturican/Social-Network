@@ -1,13 +1,8 @@
 import React, {ChangeEvent, MouseEventHandler} from 'react';
-import {
-    ActionsType,
-    DialogPageType,
-    MessagesType,
-    UsersType
-} from "../../../Redux/store";
 import s from './Message.module.css'
 import {NavLink} from "react-router-dom";
 import {addMessageAC, updateMessageAC} from "../../../Redux/dialogsReducer";
+import {ActionsType, DialogPageType, MessagesType, UsersType} from "../../../types/entities";
 
 type MessageType = {
     messages: Array<MessagesType>

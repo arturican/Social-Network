@@ -1,6 +1,7 @@
-import {ActionsType} from "./store";
+import {ActionsType, PostType} from "../types/entities";
 
-let initialState = {
+
+const initialState: InitialStateType = {
     posts: [
         {
             src: "https://i.ibb.co/CQ80wbD/photo-2021-11-21-21-54-15.jpg",
@@ -30,7 +31,12 @@ let initialState = {
     ],
     newPostText: 'Напиши пост, не молчи!'
 }
-export const profileReducer = (state=initialState, action: ActionsType) => {
+
+export type InitialStateType = {
+    posts: Array<PostType>
+    newPostText:string
+}
+export const profileReducer = (state = initialState, action: ActionsType) => {
 
     switch (action.type) {
         case "ADD-POST":
